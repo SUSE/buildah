@@ -304,6 +304,22 @@ _EOF
   expect_line_count 12
 }
 
+@test "build test has gid in supplemental groups" {
+  _prefetch alpine
+  run_buildah build --signature-policy ${TESTSDIR}/policy.json -t source -f ${TESTSDIR}/bud/supplemental-groups/Dockerfile
+  # gid 1000 must be in supplemental groups
+  expect_output --substring "Groups:	1000"
+}
+
+@test "build test if supplemental groups has gid with --isolation chroot" {
+  test -z "${BUILDAH_ISOLATION}" || skip "BUILDAH_ISOLATION=${BUILDAH_ISOLATION} overrides --isolation"
+
+  _prefetch alpine
+  run_buildah build --isolation chroot --signature-policy ${TESTSDIR}/policy.json -t source -f ${TESTSDIR}/bud/supplemental-groups/Dockerfile
+  # gid 1000 must be in supplemental groups
+  expect_output --substring "Groups:	1000"
+}
+
 @test "bud-multistage-partial-cache" {
   _prefetch alpine
   target=foo
