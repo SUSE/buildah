@@ -10,7 +10,7 @@ require (
 	github.com/containers/luksy v0.0.0-20240212203526-ceb12d4fd50c
 	github.com/containers/ocicrypt v1.1.10
 	github.com/containers/storage v1.53.0
-	github.com/cyphar/filepath-securejoin v0.2.4
+	github.com/cyphar/filepath-securejoin v0.3.0
 	github.com/docker/distribution v2.8.3+incompatible
 	github.com/docker/docker v25.0.3+incompatible
 	github.com/docker/go-units v0.5.0
@@ -37,7 +37,7 @@ require (
 	golang.org/x/crypto v0.21.0
 	golang.org/x/exp v0.0.0-20240222234643-814bf88cf225
 	golang.org/x/sync v0.6.0
-	golang.org/x/sys v0.18.0
+	golang.org/x/sys v0.21.0
 	golang.org/x/term v0.18.0
 	sigs.k8s.io/yaml v1.4.0
 )
